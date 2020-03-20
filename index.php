@@ -1,4 +1,6 @@
 <?php
     echo "hello world";
+    $aa;
+    $bb;
+    $cc;
 ?>
-<h1 style="text-transform:uppercase">hello world</h1>
