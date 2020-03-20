@@ -3,4 +3,5 @@
     $aa;
     $bb;
     $cc;
+    echo "aaaaaaaaaaaaaaaa"
 ?>
