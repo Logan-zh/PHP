@@ -29,7 +29,7 @@
         font-size:20px;
     }
     </style>
-    <table><?php
+    <table><tr><td colspan="9" style="text-align:center;">99</td></tr><?php
     for($i=1 ; $i<=9; $i++){
         echo "<tr>";
         for($j=1; $j<=9; $j++){
