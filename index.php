@@ -17,25 +17,10 @@
     define("PI",3.1415926);
     echo PI."<br>";
     echo PI*20*20;
+    echo "<br>";
+    
+    $a = 10;
+    echo ($a<20)?"太貴":"很值";
     ?>
-    <style>
-    table{
-        border:1px solid black;
-        padding:5px;
-    }
-    td{
-        margin:20px;
-        padding:10px;
-        font-size:20px;
-    }
-    </style>
-    <table><tr><td colspan="9" style="text-align:center;">99</td></tr><?php
-    for($i=1 ; $i<=9; $i++){
-        echo "<tr>";
-        for($j=1; $j<=9; $j++){
-            echo "<td>".$i."×".$j."=".$i*$j."</td>";
-        };
-        echo "</tr>";
-    }?>
-    </table>
-
+    
+    
