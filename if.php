@@ -1,5 +1,5 @@
 <?php
-    $score=38;
+    $score=60;
     // if($score>=60){
     //     echo "及格";
     // }else{
