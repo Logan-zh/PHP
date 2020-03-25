@@ -1,55 +1,43 @@
 <?php
-    $score=50;
-    if($score>=60){
-        echo "及格";
-    }else{
-        echo "不及格";
-    }
+    $score=38;
+    // if($score>=60){
+    //     echo "及格";
+    // }else{
+    //     echo "不及格";
+    // }
+    $result = ($score>=60)?"及格":"不及格";
+    echo $result;
     echo "<hr>";
 
-    $score=70;
     echo "成績".$score;
     echo "<br>";
     echo "等級";
     if($score>=90){
-        echo "A";
+        $level = "A";
+        echo $level;
     }elseif($score>=75){
-        echo "B";
+        $level = "B";
+        echo $level;
     }elseif($score>=60){
-        echo "C";
+        $level = "C";
+        echo $level;
+    }elseif($score>=40){
+        $level = "D";
+        echo $level;
     }else{
-        echo "D";
+        $level = "E";
     }
     echo "<hr>";
     // 閏年判斷
     $year=2000;
     echo "西元:".$year."<br>";
-    // if($year%4 ==0 && $year%100 !=0)){
-    //     echo "閏年";
-    // }else{
-    //     echo "平年";
-    // }
 
-    // if($year<3200){
-    //     if($year%4 ==0 && $year%100 !=0){
-    //         echo "閏年";
-    //     }else{
-    //         echo "平年";
-    //     }
-    // }else{
-    //     if($year%100 ==0 && $year%3200 !=0){
-    //         echo "閏年";
-    //     }else{
-    //         echo "平年";
-    //     }
-    // }
     if($year%4 ==0 && ($year%100 !=0 || $year%400 ==0)){
         echo "閏年";
     }else{
         echo "平年";
     }
-    echo "hr";
-    $level="A";
+    echo "<hr>";
     echo "<br>";
     switch($level){
         case "A":
