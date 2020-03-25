@@ -48,4 +48,23 @@
     }else{
         echo "平年";
     }
+    echo "hr";
+    $level="A";
+    echo "<br>";
+    switch($level){
+        case "A":
+            echo "非常好，繼續保持";
+        break;
+        case "B":
+            echo "可圈可點，還有進步空間";
+        break;
+        case "C":
+            echo "一般一般，需更加努力";
+        break;
+        case "D":
+            echo "完全不足，請多加強";
+        break;
+        default:
+            echo "你就爛!";
+    }
     ?>
