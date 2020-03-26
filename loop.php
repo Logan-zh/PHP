@@ -4,6 +4,15 @@
     }
     table td{
         padding:10px;
+
+
+    }
+    .t tr:nth-child(1){
+        background-color:#999;
+    }
+    .t td:nth-child(1){
+        background-color:#999;
+    }
 </style>
 
 <table>
