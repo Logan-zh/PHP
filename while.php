@@ -1,4 +1,6 @@
-
+<style>
+    *{font-family:"Courier New";}
+</style>
 <?php
     $str="today is a good day";
     $find="g";
@@ -34,10 +36,10 @@
     for($i=0;$i<6;$i++){
 
         for($k=4;$k>=$i;$k--){
-            echo "&emsp;";
+            echo "&nbsp;";
         }
         for($j=0;$j<=$i*2;$j++){
-            echo "★";
+            echo "*";
         }
         echo "<br>";
     }
@@ -46,10 +48,10 @@
     for($i=0;$i<6;$i++){
 
         for($k=4;$k>=$i;$k--){
-            echo "&emsp;";
+            echo "&nbsp;";
         }
         for($j=0;$j<=$i*2;$j++){
-            echo "★";
+            echo "*";
         }
         echo "<br>";
     }
@@ -57,21 +59,21 @@
     for($i=0;$i<5;$i++){
 
         for($k=0;$k<=$i;$k++){
-            echo "&nbsp;&nbsp;&nbsp;";
+            echo "&nbsp;";
         }
         for($j=10;$j>$i*2+1;$j--){
-            echo "★";
+            echo "*";
         }
         echo "<br>";
     }
 
     echo "<hr>";
-    for($i=0;$i<=8;$i++){
+    for($i=0;$i<=7;$i++){
         for($j=0;$j<7;$j++){
-            if($j<1 || $j>=6 || $i==0 ||$i==8){
-                echo "★";
+            if($j<1 || $j>=6 || $i==0 ||$i==7){
+                echo "*";
             }else{
-                echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+                echo "&nbsp;";
             }
         }
         echo "<br>";
@@ -79,14 +81,15 @@
 
     echo "<hr>";
     $a = 0;
-    $b = 6;
-    for($i=0;$i<=6;$i++){
-        for($j=0;$j<7;$j++){
+    $b = 10;
+    $x = 10;
+    for($i=0;$i<=$x;$i++){
+        for($j=0;$j<=$x;$j++){
 
-            if($j<1 || $j>=6 || $i==0 ||$i==6 ||$j==$a || $j==$b){
-                echo "★";
+            if($j<1 || $j>=$x || $i==0 ||$i==$x ||$j==$a || $j==$b){
+                echo "*";
             }else{
-                echo "&ensp;&ensp;";
+                echo "&nbsp;";
             }
         }
         $a++;
