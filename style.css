@@ -46,6 +46,9 @@ body{
 .item-box a:visited{
     color: black;
 }
+.item-box a:link{
+    color: black;
+}
 .item:hover{
     animation-name:shake;
     animation-duration: .2s;
