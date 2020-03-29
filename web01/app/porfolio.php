@@ -9,6 +9,6 @@ class porfolio extends Model
     protected $table = 'porfolio';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'title' , 'content' , 'img',
+        'name' , 'content' , 'img','site'
     ];
 }
