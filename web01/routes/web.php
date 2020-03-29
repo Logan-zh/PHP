@@ -19,12 +19,14 @@ Route::get('/', function () {
 });
 
 route::fallback(function(){
-    return redirect('porfolio');
+    $introduction = introduction::all();
+    return redirect('porfolio')->with('introduction',$introduction);
 });
 
 route::get('porfolio',function(){
     $porfolio = porfolio::all();
-    return view('porfolio')->with('porfolio',$porfolio);
+    $introduction = introduction::all();
+    return view('porfolio')->with('porfolio',$porfolio)->with('introduction',$introduction);
 });
 route::post('porfolio_back',"porfolioController@signInProcess");
 route::get('porfolio_back',"porfolioController@auth");
@@ -39,9 +41,6 @@ route::prefix('porfolio')->group(function(){
         return view('create');
     });
     route::post('create','porfolioController@createProcess');
-    route::get('edit-in',function(){
-        $in = introduction::all();
-        return view('introduction',['content'=>$in[0]->content,'img'=>$in[0]->img]);
-    });
+
     route::post('edit-in','porfolioController@editInProcess');
 });

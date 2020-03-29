@@ -15,7 +15,7 @@ class Introduction extends Migration
     {
         Schema::create('introduction', function (Blueprint $table) {
             $table->id();
-            $table->string('img');
+            $table->string('img')->nullable()->change();
             $table->text('content');
             $table->timestamps();
         });

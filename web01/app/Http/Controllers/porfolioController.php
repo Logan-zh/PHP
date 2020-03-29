@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\porfolio;
+use App\introduction;
 
 class porfolioController extends Controller
 {
@@ -14,7 +15,8 @@ class porfolioController extends Controller
         if(User::where('name',$name)->where('password',$password)->first()){
             session()->put('name',$name);
             $porfolio = porfolio::all();
-            return view('porfolioBack')->with('porfolio',$porfolio);
+            $in = introduction::all();
+            return view('porfolioBack')->with('porfolio',$porfolio)->with('introduction',$in);
         }else{
             echo "fails";
         }
@@ -23,7 +25,8 @@ class porfolioController extends Controller
     function auth (){
         if(session()->has('name')){
             $porfolio = porfolio::all();
-            return view('porfolioBack')->with('porfolio',$porfolio);
+            $in = introduction::all();
+            return view('porfolioBack')->with('porfolio',$porfolio)->with('introduction',$in);
         }else{
             return redirect('porfolio');
         }
@@ -42,6 +45,18 @@ class porfolioController extends Controller
         porfolio::create(['name'=>$title,'content'=>$content,'img'=>$imgName,'site'=>$siteName]);
     }
     function editInProcess (Request $request){
-        echo $request['content'].$request['img'];
+
+        $in = introduction::find(1);
+        $in->content = $request['content'];
+        if($request->file('img')){
+            $imgName = $request->file('img')->getclientoriginalname();
+            $request->file('img')->storeAs('public/img',$imgName);
+            $in->img = $imgName;
+        }else{
+            $in->img = "NULL";
+        }
+        $in->save();
+        return redirect('porfolio');
+        // echo $request['content'].$request['img'];
     }
 }
