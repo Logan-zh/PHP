@@ -25,20 +25,23 @@
         </form>
     </div>
 
-    <div class="item-box">
+    <div class="item-box-back">
+        
     @foreach($porfolio as $p)
-
-        <div class="item">
-            <a href="{{$p->site}}">
-            <div class="item-image"><img src="{{asset('storage/img')."/".$p->img}}"></div>
-            <div class="item-operating-area">
-                <div class="item-title">{{$p->name}}</div>
-                <div class="item-content">{{$p->content}}</div>
+        <form action="porfolio_back/edit/{{$p->id}}" method="post" enctype="multipart/form-data">
+        <div class="item-back">
+            <div class="item-image-back"><img src="{{asset('img')."/".$p->img}}"></div>
+            <div class="item-operating-area-back">
+                <input name="img" type="file">
+                <input name="name" type="text" value="{{$p->name}}">
+                <input name="content" type="text" value="{{$p->content}}">
+                @csrf
+                <input type="submit">
             </div>
-            </a>
         </div>
-
+        </form>
     @endforeach
+        
     </div>
     @endsection
 

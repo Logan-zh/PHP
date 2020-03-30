@@ -29,7 +29,7 @@ route::get('porfolio',function(){
     return view('porfolio')->with('porfolio',$porfolio)->with('introduction',$introduction);
 });
 route::post('porfolio_back',"porfolioController@signInProcess");
-route::get('porfolio_back',"porfolioController@auth");
+route::get('porfolio_back',"porfolioController@auth")->middleware('auth');
 
 route::get('sign_out',function(){
     session()->forget('name');
@@ -39,8 +39,8 @@ route::get('sign_out',function(){
 route::prefix('porfolio')->group(function(){
     route::get('create',function(){
         return view('create');
-    });
-    route::post('create','porfolioController@createProcess');
+    })->middleware('auth');
+    route::post('create','porfolioController@createProcess')->middleware('auth');
 
-    route::post('edit-in','porfolioController@editInProcess');
+    route::post('edit-in','porfolioController@editInProcess')->middleware('auth');
 });
