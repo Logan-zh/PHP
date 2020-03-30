@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title','a title')</title>
-    <link rel="stylesheet" href="{{asset('storage/css/style.css')}}">
-    <script src="{{asset('storage/js/js.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <script src="{{asset('js/js.js')}}"></script>
 </head>
 <body>
     <div class="nav">
