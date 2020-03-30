@@ -10,7 +10,7 @@
         <form action="porfolio/edit-in" method="post" enctype="multipart/form-data">
         @foreach($introduction as $in)
         <div>
-            <label for="i-content">內容:</label>
+            <label for="i-content">介紹:</label>
             <textarea id="i-content" name="content">{{$in->content}}</textarea>
         </div>
         <div>
@@ -19,7 +19,7 @@
         </div>
         <div>
             @csrf
-            <input type="submit" value='送出'>
+            <input type="submit" value='修改'>
             </div>
         @endforeach
         </form>
@@ -30,13 +30,17 @@
     @foreach($porfolio as $p)
         <form action="porfolio_back/edit/{{$p->id}}" method="post" enctype="multipart/form-data">
         <div class="item-back">
-            <div class="item-image-back"><img src="{{asset('img')."/".$p->img}}"></div>
+            <div class="item-image-back"><img src="{{asset('storage/img')."/".$p->img}}"></div>
             <div class="item-operating-area-back">
-                <input name="img" type="file">
-                <input name="name" type="text" value="{{$p->name}}">
-                <input name="content" type="text" value="{{$p->content}}">
+                <label for="img">圖片:</label>
+                <input id="img" name="img" type="file">
+                <input type="hidden" name="id" value="{{$p->id}}">
+                <label for="name">標題:</label>
+                <input id="name" name="name" type="text" value="{{$p->name}}">
+                <label for="content">內容:</label>
+                <input id="content" name="content" type="text" value="{{$p->content}}">
                 @csrf
-                <input type="submit">
+                <input type="submit" value="修改">
             </div>
         </div>
         </form>

@@ -17,7 +17,7 @@
                 <ul>
                     <li><a href="porfolio/edit-in">介紹</a></li>
                     <li><a href="porfolio/create">新增</a></li>
-                    <li><a href="">修改</a></li>
+                    <li><a href="">刪除</a></li>
                 </ul>
             </li>
             <li><a href="porfolio_back">回主頁</a></li>
@@ -27,8 +27,10 @@
             <button class="sign-btn">後臺管理</button>
             <div class="sign-box" id="sign-box">
             <form action="porfolio_back" method="post">
-            <input type="text" name="name" placeholder="name">
-            <input type="text" name="password" placeholder="password">
+                <label for="name">account</label>
+            <input id="name" type="text" name="name" placeholder="name">
+                <label for="password">password</label>
+            <input id="password" type="text" name="password" placeholder="password">
             @csrf
             <input type="submit" value="送出">
             </form>

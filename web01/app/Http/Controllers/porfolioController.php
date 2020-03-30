@@ -43,6 +43,7 @@ class porfolioController extends Controller
         $request->site = $siteName;
         
         porfolio::create(['name'=>$title,'content'=>$content,'img'=>$imgName,'site'=>$siteName]);
+        return redirect('porfolio');
     }
     function editInProcess (Request $request){
 
@@ -58,5 +59,19 @@ class porfolioController extends Controller
         $in->save();
         return redirect('porfolio');
         // echo $request['content'].$request['img'];
+    }
+    function editPoProcess(Request $request){
+
+        $p = porfolio::find($request['id']);
+        if($request['img']){
+            $pName = $request->file('img')->getClientOriginalName();
+            $request->file('img')->storeAs('public/img',$pName);
+            $p->img = $pName;
+        }
+        $p->name = $request['name'];
+        $p->content = $request['content'];
+        
+        $p->save();
+        return redirect('porfolio_back');
     }
 }

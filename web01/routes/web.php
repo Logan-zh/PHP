@@ -30,6 +30,7 @@ route::get('porfolio',function(){
 });
 route::post('porfolio_back',"porfolioController@signInProcess");
 route::get('porfolio_back',"porfolioController@auth")->middleware('auth');
+route::post('porfolio_back/edit/{id}','porfolioController@editPoProcess')->middleware('auth');
 
 route::get('sign_out',function(){
     session()->forget('name');

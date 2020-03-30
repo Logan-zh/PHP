@@ -11,7 +11,7 @@
         @if($in->img == "NULL")
         <img src="https://fakeimg.pl/100x100">
         @else
-        <img src="{{asset('img').'/'.$in->img}}" >
+        <img src="{{asset('storage/img').'/'.$in->img}}" >
         @endif
     </div>
     <div class="main">
@@ -36,8 +36,8 @@
     @foreach($porfolio as $p)
     
     <div class="item">
-        <a href="{{asset('site').'/'.$p->site}}">
-        <div class="item-image"><img src="{{asset('img')."/".$p->img}}"></div>
+        <a href="{{asset('storage/site').'/'.$p->site}}">
+        <div class="item-image"><img src="{{asset('storage/img')."/".$p->img}}"></div>
         <div class="item-operating-area">
             <div class="item-title">{{$p->name}}</div>
             <div class="item-content">{{$p->content}}</div>
