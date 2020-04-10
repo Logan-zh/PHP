@@ -1,0 +1,7 @@
+in_array //陣列中是否有該數值
+count	//陣列數量 
+floor	//無條件退位
+ceil	//無條件進位
+array_reverse //反轉陣列
+sort	//小到大排列
+rsort	//大到小排列
