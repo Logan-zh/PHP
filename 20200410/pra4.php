@@ -33,9 +33,15 @@
         $b[] = $a[$i];
     }
     echo "<pre>";print_r($b);
+
+
+
     
     // floor 無條件退位
     // ceil 無條件進位
+    // round 四捨五入
+    // max  array最大值 
+    // min  array最小值
 
     // for($i=0;$i<floor(count($a)/2);$i++){
     //     $index = count($a)-1-$i;
