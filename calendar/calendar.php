@@ -5,100 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Calendar</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-        <style>
-        body{
-            height:800px;
-            overflow: hidden;
-        }
-        .box{
-            border:solid;
-            width:200px;
-            height:200px;
-            position:absolute;
-            z-index:-1;
-        }
-        .left{
-            transform:skew(0deg,-10deg) scale(4,4);
-            top:120px;
-            left:300px;
-            background:linear-gradient(#bbb,#fff);
-        }
-        .right{
-            transform:skew(0deg,10deg) scale(4,4);
-            top:120px;
-            left:1110px;
-            background:linear-gradient(#bbb,#fff);
-        }
-        .bottom{
-            transform:rotate(-10deg) skew(70deg,0deg) scale(4,4);
-            width:300px;
-            top:765px;
-            left:1230px;
-        }
-            .containner{
-                position:absolute;
-                width:400px;
-                height:300px;
-                padding:25px;
-                display:flex;
-                left:200px;
-                top:50px;
-                justify-content:center;
-                border:1px #bbb solid;
- 
-                transform:skew(0deg,-10deg);
-            }
-            .calendar{
-                margin:0 10px;
-            }
-            .calendar table{
-                border-collapse:collapse;
-                margin:5px;
-                background:#fff;
-                box-shadow:0 0 10px #888;
-            }
-            .calendar td{
-                padding:5px;
-                text-align:center;
-                height:20px;
-            }
-            .calendar .tyear{
-                font-size:1.5rem;
-            }
-            .pass{
-                color:#aaa;
-            }
-            .calendar tr:nth-child(2) td{
-                background:#555;
-                color:#fff;
-            }
-            .calendar tr:nth-child(n+3) td{
-                border-bottom:1px #aaa solid;
-            }
-            .btn{
-                position:absolute;
-                bottom:5px;
-                z-index:999;
-            }
-            .btn a{
-                margin:5px;
-                padding:5px;
-                background:#ccc;
-            }
-            .people{
-                height:600px;
-                position:relative;
-                left:570px;
-                bottom:-60px;
-            }
-            .door{
-                position:relative;
-                height:700px;
-                right:-700px;
-                bottom:-20px;
-                transform:skew(0deg,10deg)
-            }
-        </style>
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
     <div class="box left"></div>
@@ -176,7 +83,18 @@
                 <a href="calendar.php?year=<?=$year?>&mon=<?=$q+1?>"><i class="fas fa-arrow-right"></i></a>
                 </div>
         </div>
-        <img class='people' src='ania.png'>
-        <img class='door' src='door.png'>
+        <img class='people' src='img/ania.png'>
+        <div class="dor">
+        <img src="img/cl.png" alt="">
+                <div class="window">
+                    <div class="ceil"></div>
+                    <div class="ceil"></div>
+                    <div class="ceil"></div>
+                    <div class="ceil"></div>
+                </div>
+        </div>
+        <div class="sofa">
+            <img src="https://freesvg.org/img/Sofa-lineart.png" alt="">
+        </div>
     </body>
 </html>
