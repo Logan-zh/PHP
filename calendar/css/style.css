@@ -1,6 +1,7 @@
 body{
     height:800px;
     overflow: hidden;
+    perspective: 600px;
 }
 .box{
     border:1px #000 solid;
@@ -28,6 +29,7 @@ body{
     top:760px;
     left:1210px;
 }
+
     .containner{
         position:absolute;
         width:300px;
@@ -35,12 +37,13 @@ body{
         padding:60px 0;
         display:flex;
         left:300px;
-        top:-20px;
+        top:20px;
         background:#aaa;
         justify-content:center;
         border:1px #bbb solid;
-        transform:skew(0deg,-8deg);
+        transform:rotatey(20deg)skewy(-5deg);
         box-shadow:0 0px 10px #333;
+        
     }
     .calendar{
         overflow: hidden;
@@ -108,7 +111,7 @@ body{
         width:200px;
         right:-1200px;
         bottom:573px;
-        transform:skew(0deg,10deg);
+        transform:rotatey(-30deg)skew(0deg,10deg);
         border:1px solid #666;
         padding:0;
         overflow: hidden;
