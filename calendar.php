@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>萬年曆</title>
         <style>
             body{
                 background:#eee;
@@ -15,32 +15,69 @@
                 justify-content:center;
                 border:1px #bbb solid;
                 border-radius:2%;
-                padding:10%;
+                padding:10px;
             }
-            .calandar{
-                margin:0 10px;
+            .calendar{
+                display:flex;
+                flex-direction:column;
+                flex-wrap:wrap;
+                justify-content:center;
             }
-            table{
+            .calendar table{
                 border-collapse:collapse;
-                margin:5px;
                 background:#fff;
+                border-radius:50px;
+                box-shadow:0 0 5px #888;
             }
-            td{
-                border:1px #aaa solid;
-                padding:5px;
+            .calendar table td{
+                padding:20px;
                 text-align:center;
-                height:20px;
+                height:50px;
+                width:100px;
+                font-size:2.5rem;
             }
-            .tyear{
-                text-align:center;
-                font-size:2rem;
-                color:
+            .calendar table tr:nth-child(2) td{
+                background:#888;
+                color:#fff;
+            }
+            .calendar table tr:nth-child(n+3) td{
+                border-bottom:1px #eee solid;
+            }
+            .calendar .btn{
+                margin-top:10px;
+                width:100%;
+                display:flex;
+            }
+            .calendar .btn a{
+                flex:1;
+                display:inline-flex;
+                width:100px;
+                height:50px;
+                background:#fff;
+                justify-content:center;
+                align-items:center;
+                color:#03f;
+                font-weight:bolder;
+                border-radius:5%;
+                border:1px #0af solid;
+                box-shadow:
+                            inset 0 0 5px #aaa;
+                margin:10px 0 0 20px;
+            }
+            .nextMon{
+                color:#aaa;
+                border-bottom:none;
+            }
+            .calendar .tyear ,.calendar .tmon{
+                font-size:5rem;
             }
         </style>
     </head>
     <body>
         <?php
-            if(empty($yrat)){
+            if(isset($_GET['year'])){
+                $year = $_GET['year'];
+            }else{
                 $year = date('Y');
             }
             if(isset($_GET['mon'])){
@@ -48,20 +85,26 @@
             }else{
                 $q = date('m');
             }
-            if($q == 13){
+            if($q > 12){
                 $year+=1;
                 $q=1;
             }
+            if($q <= 0){
+                $year-=1;
+                $q=12;
+            }
+            $mm = date('F',strtotime("$year-$q-1"));
         ?>
-        <a href="calandar.php?mon=<?= $q-1?>">Pre mon</a>
-        <a href="calandar.php?mon=<?= $q+1?>">Next mon</a>
 
-        <div class="tyear">年分:<?=$year?></div>
         <div class="containner">
 
-            <div class="calandar">
+            <div class="calendar">
                 <table>
-                    <tr><td colspan=7><?=$q?>月</td></tr>
+                    
+                    <tr>
+                        <td colspan=4 class="tyear"><?=$year?>年</td>
+                        <td colspan=3 class="tmon"><?=$mm?></td>
+                    </tr>
                     <tr>
                         <td>日</td>
                         <td>一</td>
@@ -72,14 +115,21 @@
                         <td>六</td>
                     </tr>
                     <?php
+
+                        $a = 1;
                         $firstDay = date("$year-$q-1");
                         $firstDayWeek = date('w',strtotime($firstDay));
                         $days = date('t',strtotime($firstDay));
+
+                        $ndays = date('t',strtotime("-1 year".$firstDay));
+                        $mq = $firstDayWeek;
                         for($i=0 ; $i<6 ; $i++){
                             echo "<tr>";
                             for($j=0 ; $j<7 ; $j++){
                                 if($i==0 && $j< $firstDayWeek ){
-                                    echo "<td></td>";
+                                    $mm =$ndays - $mq+1;
+                                    echo "<td class='nextMon'>".$mm."</td>";
+                                    $mq-=1;
                                 }else{
                                     $num = $i*7+$j+1-$firstDayWeek;
                                     if($num<=$days){
@@ -89,7 +139,8 @@
                                                 echo "<td>".$num."</td>";
                                             }
                                     }else{
-                                        echo "<td></td>";
+                                        echo "<td class='nextMon'>".$a."</td>";
+                                        $a++;
                                     }
                                 }   
                             }
@@ -97,8 +148,13 @@
                         }
                     ?>          
                 </table>
+                <div class="btn">
+                    <a href="calendar.php?mon=<?=$q-1?>&year=<?=$year?>">Previous mon</a>
+                    <a href="calendar.php?mon=<?=date('n')?>&year=<?=date('Y')?>">當月</a>
+                    <a href="calendar.php?mon=<?=$q+1?>&year=<?=$year?>">Next mon</a>
+                </div>
             </div>
-      
+
         </div>
     </body>
 </html>

@@ -1,8 +1,8 @@
 <?php
     $status = 'fail';
-    if(!empty($_POST)){
-        $acc = $_POST['acc'];
-        $pw = $_POST['pw'];
+    if(!empty($_GET)){
+        $acc = $_GET['acc'];
+        $pw = $_GET['pw'];
         echo 'acc:'.$acc.'<br>';
         echo 'pw:'.$pw.'<br>';
         if($acc == 'admin' && $pw == 'admin'){
