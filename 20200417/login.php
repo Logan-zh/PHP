@@ -32,7 +32,7 @@
         }
     if($showLoginForm){
     ?>
-    <form action="user.php" method='post'>
+    <form action="user.php" method='get'>
         <div>帳號:<input type="text" name='acc'></div>
         <div>密碼:<input type="password" name="pw"></div>
         <div>
