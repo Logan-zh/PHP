@@ -8,12 +8,8 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <div class="boxs">
-        <div class="box left"></div>
-        <div class="box right"></div>
-        <div class="box bottom"></div>
-        </div>
         <?php
+            date_default_timezone_set('Asia/Taipei');
             if(isset($_GET['year'])){
                 $year = $_GET['year'];
             }else{
@@ -41,18 +37,36 @@
             $preD = date('t',strtotime('-1 month'.$firstDay));
             $between = $firstDayWeek-1;
         ?>
+                <div class="cleft">現在:<?=date('Y-m-d')?>、<?=date('H')?>點<?=date('i')?>分</div>
                     <div class="containner">
                         <div class="calendar">
                             <table>
-                                <tr><td colspan=4 class="tyear"><?=$year?>年</td><td colspan=3><?=$monE?></td></tr>
                                 <tr>
-                                    <td>日</td>
-                                    <td>一</td>
-                                    <td>二</td>
-                                    <td>三</td>
-                                    <td>四</td>
-                                    <td>五</td>
-                                    <td>六</td>
+                                    <td colspan="1">
+                                    <a href="calendar.php?year=<?=$year-1?>&mon=<?=$q?>"><i class="fas fa-arrow-left"></i></a>
+                                    </td>
+                                    <td colspan="5" class="tyear"><?=$year?>年</td>
+                                    <td colspan="1">
+                                    <a href="calendar.php?year=<?=$year+1?>&mon=<?=$q?>"><i class="fas fa-arrow-right"></i></a>
+                                    </td>
+                                    </tr>
+                                    <tr><td colspan="1">
+                                    <a href="calendar.php?year=<?=$year?>&mon=<?=$q-1?>"><i class="fas fa-arrow-left"></i></a>
+                                    </td>
+                                    <td colspan="5">
+                                    <?=$monE?>
+                                    </td>
+                                    <td colspan="1">
+                                    <a href="calendar.php?year=<?=$year?>&mon=<?=$q+1?>"><i class="fas fa-arrow-right"></i></a>
+                                    </td></tr>
+                                <tr>
+                                    <td style="color:red">SUN</td>
+                                    <td>MON</td>
+                                    <td>TUE</td>
+                                    <td>WED</td>
+                                    <td>THU</td>
+                                    <td>FRI</td>
+                                    <td style="color:red">SAT</td>
                                 </tr>
                     <?php
                         for($i=0 ; $i<6 ; $i++){
@@ -80,22 +94,7 @@
                     ?>          
                 </table>
             </div>
-                <div class="btn">
-                <a href="calendar.php?year=<?=$year?>&mon=<?=$q-1?>"><i class="fas fa-arrow-left"></i></a>
-                <a href="calendar.php?year=<?=$year?>&mon=<?=$q+1?>"><i class="fas fa-arrow-right"></i></a>
-                </div>
-        </div>
-        <div class="dor">
-        <img src="img/cl.png" alt="">
-                <div class="window">
-                    <div class="ceil"></div>
-                    <div class="ceil"></div>
-                    <div class="ceil"></div>
-                    <div class="ceil"></div>
-                </div>
-        </div>
-        <div class="sofa">
-            <img src="https://freesvg.org/img/Sofa-lineart.png" alt="">
+
         </div>
     </body>
 </html>

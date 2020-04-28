@@ -1,159 +1,77 @@
+*{
+    font-family:sans-serif;
+    box-sizing: border-box;
+}
 body{
-    height:800px;
-    overflow: hidden;
+    height:100vh;
     perspective: 600px;
-    position: absolute;
+    display:flex;
+    justify-content:center;
+    background:#eec;
 }
-.boxs{
-    overflow: hidden;
-    position: absolute;
-    width:1600px;
-    height:800px;
-}
-.box{
-    border:1px #000 solid;
-    width:200px;
-    height:200px;
-    position:absolute;
-    z-index:-1;
-}
-.left{
-    transform:skew(0deg,-10deg) scale(4,4);
-    top:120px;
-    left:300px;
-    background:linear-gradient(#bbb,#fff);
-}
-.right{
-    transform:skew(0deg,10deg) scale(4,4);
-    top:120px;
-    left:1100px;
-    background:linear-gradient(#bbb,#fff);
-}
-.bottom{
-    transform:rotate(-10deg) skew(70deg,0deg) scale(4,4);
-    background:linear-gradient(#fff,#aaa);
-    width:300px;
-    top:760px;
-    left:1210px;
-}
-
     .containner{
-        position:absolute;
-        width:300px;
-        height:300px;
-        padding:60px 0;
+        width:800px;
+        height:680px;
+        padding:0px;
         display:flex;
         left:300px;
         top:20px;
-        background:#aaa;
+        background:#eee;
         justify-content:center;
         border:1px #bbb solid;
-        transform:rotatey(20deg)skewy(-5deg);
         box-shadow:0 0px 10px #333;
         overflow: hidden;
     }
-    .calendar{
-        overflow: hidden;
+    .cleft{
+       position: absolute;
+       left:20px;
+       bottom:30px;
     }
     .calendar table{
         border-collapse:collapse;
         margin:5px;
-        background:#fff;
-        box-shadow:0 0 10px #888;
-        border-radius:5%;
+        background:#eee;
+        border-radius:1%;
     }
     .calendar td{
         padding:5px;
         text-align:center;
-        height:20px;
+        height:70px;
+        width:160px;
     }
     .calendar .tyear{
-        font-size:1.5rem;
+        font-size:2rem;
     }
     .pass{
-        color:#aaa;
+        color:#ccc;
     }
-    .calendar tr:nth-child(2) td{
-        background:#555;
+    .calendar tr:nth-child(2),tr:nth-child(1){
+        background:#77a;
         color:#fff;
+        font-size:2.5rem;
     }
     .calendar tr:nth-child(n+3) td{
-        border-bottom:1px #aaa solid;
+        font-size:1.5rem;
     }
-    .btn{
-        position:absolute;
-        bottom:0px;
-        padding:10px;
-        width:300px;
-        display:flex;
-        background:#666;
-        box-sizing:border-box;
-        text-align: center;
+    .calendar tr:nth-child(n+4) td:hover{
+        box-shadow:inset 0px 0px 5px #333;
+        cursor:pointer;
     }
-    .btn a{
-        flex:1;
+    .calendar tr:nth-child(n+4) td:active{
+        border:1px solid #03a;
+    }
+    a{
         box-sizing:border-box;
-        margin:5px;
+        margin:0px;
         padding:5px;
         display:inline-block;
+        width:100%;
         background:transparent;
         box-shadow:0 0 8px 5px transparent;
         color:#aea;
         border-radius:10%;
-        transition:.5s;
+        transform:.5s;
     }
-    .btn a:hover{
+    a:hover{
         box-shadow: 0 0 15px #ddd;
-    }
-    .dor{
-        position:relative;
-        background:#eee;
-        height:200px;
-        width:200px;
-        right:-1200px;
-        bottom:573px;
-        transform:rotatey(-30deg)skew(0deg,10deg);
-        border:1px solid #666;
-        padding:0;
-        overflow: hidden;
-    }
-    .dor img{
-        position:absolute;
-        left:10px;
-        width:100px;
-        animation:shake 5s infinite alternate linear;
-    }
-    .window{
-        border:solid;
-        left:0px;
-        margin:0;
-        width:200px;
-        height:200px;
-        position:absolute;
-        transform-origin:left;
-        overflow:hidden;
-        display:flex;
-        flex-flow:row wrap;
-        padding:0;
-    }
-    .window .ceil{
-        position:relative;
-        margin:0;
-        flex:1 0 45%;
-        border:1px #000 solid;
-        width:100px;
-        height:100px;
-    }
-    .sofa{
-        position: relative;
-        bottom:-80px;
-        left:1020px
-    }
-    .sofa img{
-        width:600px;
-    }
-    @keyframes shake{
-        0%{left:-20px;}
-        50%{left:70px;}
-        100%{left:140px;}
     }
