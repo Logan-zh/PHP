@@ -4,21 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員列表</title>
-    <style>
-        table{
-            border-collapse:collapse;
-            margin:auto;
-        }
-        table td{
-            border:1px solid #333;
-            padding:5px;
-        }
-        button{
-            margin:2px;
-            border-radius:2px;
-            box-shadow:1px 1px 2px #000;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>會員列表</h1>
@@ -28,7 +14,7 @@
         $sql = "select * from users";
         $rows = $pdo->query($sql)->fetchall();
     ?>
-    <table>
+    <table class="users-table">
         <tr>
             <td>ID</td>
             <td>暱稱</td>
@@ -52,7 +38,7 @@
             echo "<td>$row[create_time]</td>";
             echo "<td>";
             echo "<a href='edit.php?ID=$row[id]'><button>編輯</button></a>";
-            echo "<a href='delete_user.php?ID=$row[id]'><button>刪除</button></a>";
+            echo "<a href='delete_process.php?ID=$row[id]'><button>刪除</button></a>";
             echo "</td>";
         }
     ?>

@@ -1,0 +1,102 @@
+:root{
+    font-family:cursive sans-serif;
+    font-size:1rem;
+}
+.container{
+    display:flex;
+    justify-content:center;
+}
+.container h1{
+    position:absolute;
+
+}
+.reg{
+    margin:100px 0px;
+    display:flex;
+}
+.reg form{
+    border:1px solid;
+    padding:20px;
+}
+.reg form div{
+    margin:10px;
+    position:relative;
+}
+.reg form div .bef{
+    position:absolute;
+    left:0px;
+    top:10px;
+    transition:.5s;
+    font-size:1rem;
+    color:#0000;
+    user-select:none;
+}
+.reg form div input:valid + .bef{
+    transform:scale(.8) translate(-5px,-30px);
+    color:#000;
+}
+.reg form div input{
+    border:none;
+    font-size:1rem;
+    padding:10px 0;
+    border-radius:10px;
+}
+.reg form div input[type=text],input[type=password],input[type=email],input[type=number]{
+    width:400px;
+}
+.reg form .btn input{
+    margin:10px 10px;
+    padding:10px;
+    border:none;
+    background:#eee;
+    font-size:.8rem;
+    width:45%;
+    transition:.5s;
+    cursor:pointer;
+}
+.reg form .btn input:hover{
+    transform:scale(1.1);
+}
+
+/* sign */
+.sign-in-box {
+    height:400px;
+    width:200px;
+    margin:auto;
+    padding:20px 40px;
+    box-shadow:0px 0px 5px #aaa;
+}
+.sign-in-box div{
+    margin-top:30px;
+}
+.sign-in-box input{
+    margin:5px 5px;
+    padding:10px;
+    border:none;
+    border-bottom:1px solid #ccc;
+}
+.sign-in-box .btn input{
+    padding:10px;
+    width:100%;
+    border-radius:10px;
+}
+.sign-in-box .btn a{
+    text-align:center;
+    display:block;
+    margin:auto;
+}
+
+/* list */
+.users-table{
+    border-collapse:collapse;
+    margin:auto;
+}
+.users-table td{
+    border:1px solid #333;
+    padding:5px;
+}
+.users-table button{
+    margin:2px;
+    border-radius:2px;
+    box-shadow:1px 1px 2px #000;
+}
