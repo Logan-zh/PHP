@@ -53,11 +53,10 @@
         }
         .reg form .btn input{
             margin:10px 10px;
-            padding:5px;
-            color:#fff;
+            padding:10px;
             border:none;
-            background:#aaa;
-            font-size:1rem;
+            background:#eee;
+            font-size:.8rem;
             width:45%;
             transition:.5s;
             cursor:pointer;
