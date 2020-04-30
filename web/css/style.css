@@ -69,21 +69,24 @@
 .sign-in-box div{
     margin-top:30px;
 }
+.sign-in-box .info{
+    height:100px;
+}
 .sign-in-box input{
     margin:5px 5px;
     padding:10px;
     border:none;
     border-bottom:1px solid #ccc;
 }
+.sign-in-box .btn{
+    
+}
 .sign-in-box .btn input{
     padding:10px;
-    width:100%;
     border-radius:10px;
 }
 .sign-in-box .btn a{
     text-align:center;
-    display:block;
-    margin:auto;
 }
 
 /* list */
