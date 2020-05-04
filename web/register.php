@@ -20,7 +20,7 @@
         <div class="btn"><input type="submit" value="加入會員"><input type="reset" value="重新填寫"></div>
     </form>
     </div>
+    <a href="login_page.php"><h2>回登入</h2></a>
     </div>
-
 </body>
 </html>

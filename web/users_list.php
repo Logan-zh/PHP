@@ -11,12 +11,15 @@
         <div class="header">
         <h1>會員列表</h1>
     <?php
+        if($_COOKIE['id']){
         include 'dbconnect.php';
-        $email = $_GET['email'];
-        $sql = "select * from users where `email` = '$email'";
+        $id = $_COOKIE['id'];
+        $sql = "select * from users where `id` = '$id'";
         $user = $pdo->query($sql)->fetch();
-        echo "<h3>歡迎$user[nickname]</h3>";
-
+        echo "<h3>歡迎".$user['name']."</h3>";
+        }else{
+            header('location:login_page.php');
+        }
         $sql = "select * from users";
         $rows = $pdo->query($sql)->fetchall();
     ?>
@@ -51,7 +54,7 @@
     ?>
     </table>
     
-    <a href="login_page.php?id=<?=$user['id']?>"><h2>回登入</h2></a>
+    <a href="login_page.php"><h2>回登入</h2></a>
     </div>
 </body>
 </html>

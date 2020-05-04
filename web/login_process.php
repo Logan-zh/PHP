@@ -6,17 +6,21 @@
         $password = $_POST['password'];
         $dsn = "mysql:host=localhost;charset=utf8;dbname=web";
         $pdo = NEW pdo ($dsn,'root','');
-        $sql = "select count(*) from `users` where `email` = '$email' && `password` = '$password'";
-        $user = $pdo->query($sql)->fetchColumn();
+        $sql = "select * from `users` where `email` = '$email' && `password` = '$password'";
+        $user = $pdo->query($sql)->fetch();
         echo $user;
         if($user>0){
             echo '登入成功';
-            header('location:users_list.php?email='.$email);
+            setcookie('id',$user['id'],time()+600);
+            setcookie('status',true,time()+600);
+            header('location:users_list.php');
         }else{
             echo '登入失敗';
-            header('location:login_page.php?status=false');
+            setcookie('status','false',time()+10);
+            header('location:login_page.php');
         }
     }else{
-        header('location:login_page.php?status=NULL');
+        setcookie('status','NULL',time()+10);
+        header('location:login_page.php');
     }
 ?>

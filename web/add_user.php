@@ -19,7 +19,7 @@ if(empty($_POST)){
     $result = $pdo->exec($sql);
         
     if($result){
-        header('location:users_list.php');
+        header('location:login_page.php');
     }else{
         echo '註冊失敗';
     }
