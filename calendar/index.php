@@ -9,6 +9,7 @@
     </head>
     <body>
         <?php
+            include 'celebra.php';
             date_default_timezone_set('Asia/Taipei');
             if(isset($_GET['year'])){
                 $year = $_GET['year'];
@@ -18,7 +19,7 @@
             if(isset($_GET['mon'])){
                 $q = $_GET['mon'];
             }else{
-                $q = date('m');
+                $q = date('n');
             }
             if($q > 12){
                 $year+=1;
@@ -43,21 +44,21 @@
                             <table>
                                 <tr>
                                     <td colspan="1">
-                                    <a href="calendar.php?year=<?=$year-1?>&mon=<?=$q?>"><i class="fas fa-arrow-left"></i></a>
+                                    <a href="index.php?year=<?=$year-1?>&mon=<?=$q?>"><i class="fas fa-arrow-left"></i></a>
                                     </td>
                                     <td colspan="5" class="tyear"><?=$year?>年</td>
                                     <td colspan="1">
-                                    <a href="calendar.php?year=<?=$year+1?>&mon=<?=$q?>"><i class="fas fa-arrow-right"></i></a>
+                                    <a href="index.php?year=<?=$year+1?>&mon=<?=$q?>"><i class="fas fa-arrow-right"></i></a>
                                     </td>
                                     </tr>
                                     <tr><td colspan="1">
-                                    <a href="calendar.php?year=<?=$year?>&mon=<?=$q-1?>"><i class="fas fa-arrow-left"></i></a>
+                                    <a href="index.php?year=<?=$year?>&mon=<?=$q-1?>"><i class="fas fa-arrow-left"></i></a>
                                     </td>
                                     <td colspan="5">
                                     <?=$monE?>
                                     </td>
                                     <td colspan="1">
-                                    <a href="calendar.php?year=<?=$year?>&mon=<?=$q+1?>"><i class="fas fa-arrow-right"></i></a>
+                                    <a href="index.php?year=<?=$year?>&mon=<?=$q+1?>"><i class="fas fa-arrow-right"></i></a>
                                     </td></tr>
                                 <tr>
                                     <td style="color:red">SUN</td>
@@ -74,23 +75,39 @@
                             for($j=0 ; $j<7 ; $j++){
                                 if($i==0 && $j< $firstDayWeek ){
                                     echo "<td class='pass'>".($preD-$between)."</td>";
+                                    echo "";
                                     $between--;
                                 }else{
                                     $num = $i*7+$j+1-$firstDayWeek;
                                     if($num<=$days){
                                             if($j==6 || $j==0){ 
-                                                echo "<td style='color:red'>".$num."</td>";
+                                                echo "<td style='color:red'>$num";
+                                                if(!empty($cele[$q][$num])){
+                                                    echo "<br>";
+                                                    print_r($cele[$q][$num]);
+                                                    echo "</td>";
+                                                }else{
+                                                    echo "</td>";
+                                                }
                                             }else{
-                                                echo "<td>".$num."</td>";
+                                                echo "<td>$num";
+                                                if(!empty($cele[$q][$num])){
+                                                    echo "<br>";
+                                                    print_r ($cele[$q][$num]);
+                                                    echo "</td>";
+                                                }else{
+                                                    echo "</td>";
+                                                }
                                             }
                                     }else{
-                                        echo "<td class='pass'>".$nextD."</td>";
+                                        echo "<td class='pass'>".$nextD."</>";
                                         $nextD++;
                                     }
                                 }   
                             }
                             echo "</tr>";
                         }
+                        
                     ?>          
                 </table>
             </div>

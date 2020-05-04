@@ -5,10 +5,18 @@
 .container{
     display:flex;
     justify-content:center;
+    flex-wrap: wrap;
+    padding:0 5%;
 }
-.container h1{
-    position:absolute;
-
+.header{
+    flex:0 0 100%;
+    display:flex;
+    justify-content:center;
+    flex-wrap: wrap;
+}
+.header h1 , h3{
+    text-align: center;
+    flex:100%;
 }
 .reg{
     margin:100px 0px;
@@ -92,7 +100,7 @@
 /* list */
 .users-table{
     border-collapse:collapse;
-    margin:auto;
+    flex:0 0 100%;
 }
 .users-table td{
     border:1px solid #333;
@@ -101,5 +109,5 @@
 .users-table button{
     margin:2px;
     border-radius:2px;
-    box-shadow:1px 1px 2px #000;
+    box-shadow:.5px .5px 1px #000;
 }

@@ -10,7 +10,7 @@
     <div class="container">
     <h1>會員註冊</h1>
     <div class="reg">
-    <form action="add_user.php" method="post">
+    <form action="add_user.php" method="POST">
         <div><input placeholder="暱　　稱：" type="text" name="nickname" required><span class="bef">暱　　稱：</span></div>
         <div><input placeholder="電子信箱：" type="email" name="email" required><span class="bef">電子信箱：</span></div>
         <div><input placeholder="密　　碼：" type="password" name="password" required><span class="bef">密　　碼：</span></div>

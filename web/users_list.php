@@ -7,13 +7,20 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>會員列表</h1>
+    <div class="container">
+        <div class="header">
+        <h1>會員列表</h1>
     <?php
-        $dsn = "mysql:host=localhost;charset=utf8;dbname=web";
-        $pdo = new pdo($dsn,'root','');
+        include 'dbconnect.php';
+        $email = $_GET['email'];
+        $sql = "select * from users where `email` = '$email'";
+        $user = $pdo->query($sql)->fetch();
+        echo "<h3>歡迎$user[nickname]</h3>";
+
         $sql = "select * from users";
         $rows = $pdo->query($sql)->fetchall();
     ?>
+        </div>
     <table class="users-table">
         <tr>
             <td>ID</td>
@@ -43,5 +50,8 @@
         }
     ?>
     </table>
+    
+    <a href="login_page.php?id=<?=$user['id']?>"><h2>回登入</h2></a>
+    </div>
 </body>
 </html>

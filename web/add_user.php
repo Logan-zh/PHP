@@ -1,5 +1,5 @@
 <?php
-if(empty($_POST['nickname'])){
+if(empty($_POST)){
     echo '非法存取';
     exit();
 }
@@ -19,7 +19,7 @@ if(empty($_POST['nickname'])){
     $result = $pdo->exec($sql);
         
     if($result){
-        header('location:add_user.php');
+        header('location:users_list.php');
     }else{
         echo '註冊失敗';
     }
