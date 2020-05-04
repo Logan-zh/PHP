@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="container">
+    <div class="regis">
     <h1>會員註冊</h1>
     <div class="reg">
     <form action="add_user.php" method="POST">
@@ -21,6 +22,7 @@
     </form>
     </div>
     <a href="login_page.php"><h2>回登入</h2></a>
+    </div>
     </div>
 </body>
 </html>
