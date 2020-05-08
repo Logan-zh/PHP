@@ -11,9 +11,13 @@
         <div class="header">
         <h1>會員列表</h1>
     <?php
-        if($_COOKIE['id']){
+        // if($_COOKIE['id']){
+        // include 'dbconnect.php';
+        // $id = $_COOKIE['id'];
+        session_start();
+        if($_SESSION['id']){
         include 'dbconnect.php';
-        $id = $_COOKIE['id'];
+        $id = $_SESSION['id'];
         $sql = "select * from users where `id` = '$id'";
         $user = $pdo->query($sql)->fetch();
         echo "<h3>歡迎".$user['name']."</h3>";

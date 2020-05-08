@@ -11,19 +11,32 @@
 <div class="sign-in-box">
     <div class="info"><h1>
 <?php
+    session_start();
     $showLogin = true;
-    if(isset($_COOKIE['status'])){
-        switch ($_COOKIE['status']){
-            case 'false':
-                echo '輸入錯誤';
-            break;
-            case 'NULL':
-                echo '沒有輸入';
-            break;
-            case true:
-                echo '已經登入';
-                $showLogin = false;
-            break;
+    // if(isset($_COOKIE['status'])){
+    //     switch ($_COOKIE['status']){
+    //         case 'false':
+    //             echo '輸入錯誤';
+    //         break;
+    //         case 'NULL':
+    //             echo '沒有輸入';
+    //         break;
+    //         case 'true':
+    //             echo '已經登入';
+    //             $showLogin = false;
+    //         break;
+            if(isset($_SESSION['status'])){
+                switch ($_SESSION['status']){
+                    case 'false':
+                        echo '輸入錯誤';
+                    break;
+                    case 'NULL':
+                        echo '沒有輸入';
+                    break;
+                    case 'true':
+                        echo '登入中';
+                        $showLogin = false;
+                    break;
         }
     }else{  ?>
 會員登入
