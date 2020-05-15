@@ -1,17 +1,19 @@
 <?php
 
     //做一個類似array_merge()的功能
+    echo "<pre>";
+    print_r( merge("a","b","c","fork",52,"dock",6.5,3.88,-5,'roki') );
 
-    merge("a","b","c","fork",52,"dock");
 
-    function merge($a,...$b){
+    function merge(...$a){
         $tmp = [];
-        $tmp[] = $a;
-        if(is_array($b)){
-            foreach($b as $value){
+        if(is_array($a)){
+            foreach($a as $value){
                 $tmp[] = $value;
             }
+        }else{
+            $tmp[] = $a;
         }
-        print_r($tmp);
+        return $tmp;
     }
 ?>
