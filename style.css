@@ -30,3 +30,19 @@
     text-align: center;
     font-size:32px;
 }
+table{
+    border-collapse:collapse;
+}
+td{
+    border:1px solid;
+}
+table tr td img{
+    width:200px;
+    height:120px;
+}
+
+body{
+    max-width:1200px;
+    margin-left:auto;
+    margin-right: auto;
+}
