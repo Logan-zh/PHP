@@ -20,9 +20,12 @@
  <h1 class="header">檔案上傳練習</h1>
  <!----建立你的表單及設定編碼----->
 
+<form action="catch_file.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="img">
+    <input type="submit" value="submit">
+</form>
 
-
-
+<img src="img/<?=$_GET['filename']?>" alt="">
 
 <!----建立一個連結來查看上傳後的圖檔---->  
 

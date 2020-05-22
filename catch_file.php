@@ -3,6 +3,8 @@ echo "<pre>";
     print_r($_FILES);
 echo "</pre>";
 
+date_default_timezone_set('asia/taipei');
+
 $name = $_FILES['img']['name'];
 $tmp = $_FILES['img']['tmp_name'];
 $error = $_FILES['img']['error'];
@@ -22,8 +24,7 @@ if($error == 0){
 
     $name = date("Ymdhis").$sub;
     move_uploaded_file($tmp,"img/".$name);
+
+    header("location:upload.php?filename=$name");
 }
-
 ?>
-
-<img src="img/<?=$name?>" alt="">
