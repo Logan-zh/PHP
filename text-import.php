@@ -23,7 +23,7 @@
 <h1 class="header">文字檔案匯入練習</h1>
 <!---建立檔案上傳機制--->
 
-<form action="parse_file.php" method="POST" enctype="multipart/form-data" style="margin:auto; width:200px">
+<form action="parse_file.php" method="POST" enctype="multipart/form-data" style="margin:auto; width:300px; border:1px solid black;padding:10px;">
     <input type="file" name="doc">
     <input type="submit" value="匯入">
 </form>
