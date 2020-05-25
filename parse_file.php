@@ -13,14 +13,24 @@ if(!empty($_FILES['doc']['tmp_name'])){
         move_uploaded_file($_FILES['doc']['tmp_name'],'doc/'.$_FILES['doc']['name']);
         $path = 'doc/'.$_FILES['doc']['name'];
         $file = fopen($path,'r');
-        header("Content-Type:text/html; charset=big-5");
+        $num = 1;
+        header("Content-Type:text/html;charset=utf-8");
         while(!feof($file)){
             $txt = fgets($file);
-            $font_size = rand(12,48);
-            echo "<div style='margin:10px;font-size:$font_size'px>".$txt."</div>";
+            $tmp = explode(',',$txt);
+            $data = [
+                'subject' => $tmp[0],
+                'description' => $tmp[1],
+                'create_date' => $tmp[2],
+                'due' => $tmp[3],
+            ];
+            save('todo_list',$data);
+            $num++;
         }
+        echo '已儲存'.$num.'筆資料';
         echo fclose($file);
     }
+    to('text-import.php');
 }else{
     echo "上傳錯誤：".$_FILES['doc']['error'];
 }

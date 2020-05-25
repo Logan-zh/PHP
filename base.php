@@ -3,7 +3,7 @@
     $pdo = new pdo($dsn,'root','');
     date_default_timezone_set('asia/taipei');
 
-function all($table ,$arg = 1){
+function all($table ,$arg = 1,$s = pdo::FETCH_BOTH){
     global $pdo;
     $sql = "select * from `$table` where ";
     if(is_array($arg)){
@@ -14,7 +14,7 @@ function all($table ,$arg = 1){
     }else{
         $sql .= $arg;
     }
-    $rows = $pdo->query($sql)->fetchAll();
+    $rows = $pdo->query($sql)->fetchAll($s);
     return $rows;
 }
 function find($table ,$arg){
